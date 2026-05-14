@@ -12,7 +12,7 @@ export const TechSection = () => {
   return (
     <section id="tecnologias" className="relative py-32">
       {/* Subtle divider */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xs h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xs h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6" ref={ref}>
         <motion.div
