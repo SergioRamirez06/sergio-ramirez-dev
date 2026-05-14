@@ -38,7 +38,7 @@ export const AboutSection = () => {
             className="flex flex-col gap-6"
           >
             <p className="text-muted-foreground leading-relaxed">
-              Soy Sergio Andrés Ramírez Acosta, desarrollador web de Villanueva, La Guajira, especializado 
+              Soy Sergio Andrés Ramírez Acosta, desarrollador full-stack de Villanueva, La Guajira, especializado 
               principalmente en desarrollo backend. Mi enfoque principal está en la construcción de APIs escalables, 
               seguras y eficientes con NestJS, complementando mi experiencia con Express.js, PostgreSQL, MongoDB, 
               Docker y comunicación en tiempo real mediante WebSockets para desarrollar soluciones robustas orientadas 
