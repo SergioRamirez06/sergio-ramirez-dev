@@ -1,4 +1,4 @@
-import { portafolioApi } from "../api/api";
+import { portafolioApi } from "../../api/api";
 import { Project } from "../types/project";
 
 interface ProjectsResponse {
@@ -13,6 +13,5 @@ interface ProjectsResponse {
 
 export const getProjects = async (): Promise <Project[]> => {
   const { data } = await portafolioApi.get<ProjectsResponse>('/projects');
-  console.log("Data recibida de la API:", data);
   return data?.project?.projects ?? [];
 };

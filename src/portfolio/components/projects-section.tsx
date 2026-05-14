@@ -5,7 +5,7 @@ import { useRef } from "react"
 import { ExternalLink, Github } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { useQuery } from "@tanstack/react-query"
-import { getProjects } from "@/src/actions/get-projects"
+import { getProjects } from "@/src/portfolio/actions/get-projects"
 
 export const ProjectsSection = () => {
   const ref = useRef(null)
@@ -18,7 +18,7 @@ export const ProjectsSection = () => {
 
   return (
     <section id="proyectos" className="relative py-32">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xs h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xs h-px bg-linear-to-r from-transparent via-border to-transparent" />
       <div className="mx-auto max-w-6xl px-6" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,7 +55,7 @@ export const ProjectsSection = () => {
             >
               {/* Background glow */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
+                className={`absolute inset-0 bg-linear-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
               />
 
               <div className="relative z-10 flex flex-col gap-5 flex-1">

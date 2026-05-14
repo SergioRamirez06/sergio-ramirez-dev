@@ -1,6 +1,6 @@
 import { Footer } from "react-day-picker";
-import { AboutSection, ContactSection, HeroSection, Navbar, ProjectsSection, TechSection } from "../components/portfolio";
 import Providers from "./provider";
+import { AboutSection, ContactSection, HeroSection, Navbar, ProjectsSection, TechSection } from "../portfolio/components";
 
 
 

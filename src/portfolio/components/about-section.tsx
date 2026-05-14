@@ -38,22 +38,25 @@ export const AboutSection = () => {
             className="flex flex-col gap-6"
           >
             <p className="text-muted-foreground leading-relaxed">
-              Soy Sergio Andrés Ramírez Acosta, un desarrollador web apasionado de Villanueva, 
-              La Guajira, en desarrollo backend y frontend. Me especializo en Node.js, React, PostgreSQL, 
-              MongoDB y Docker, creando aplicaciones modernas, escalables y eficientes que cumplen con las
-               necesidades reales de los usuarios y las empresas.
+              Soy Sergio Andrés Ramírez Acosta, desarrollador web de Villanueva, La Guajira, especializado 
+              principalmente en desarrollo backend. Mi enfoque principal está en la construcción de APIs escalables, 
+              seguras y eficientes con NestJS, complementando mi experiencia con Express.js, PostgreSQL, MongoDB, 
+              Docker y comunicación en tiempo real mediante WebSockets para desarrollar soluciones robustas orientadas 
+              a necesidades reales de negocio.
             </p>
+
             <p className="text-muted-foreground leading-relaxed">
-              Me encanta trabajar en proyectos que combinan tecnologías modernas y buenas prácticas
-              de desarrollo, aplicando principios como SOLID, arquitectura limpia.
-              Además, disfruto integrar herramientas como Tailwind CSS, Framer Motion y TanStack Query
-              para mejorar la experiencia de usuario y la eficiencia del desarrollo frontend.
+              Me especializo en diseñar arquitecturas limpias, modulares y mantenibles, aplicando principios 
+              como SOLID y buenas prácticas de desarrollo. Trabajo principalmente con el ecosistema backend de 
+              Node.js, construyendo servicios bien estructurados, integraciones en tiempo real y soluciones de alto 
+              rendimiento. Además, complemento mi perfil con React, Tailwind CSS y TanStack Query para integrar 
+              interfaces modernas con servicios backend eficientes.
             </p>
+
             <p className="text-muted-foreground leading-relaxed">
-              Fuera del código, soy una persona curiosa y organizada, siempre buscando aprender nuevas
-              tecnologías y mejorar mis habilidades. Me interesa especialmente la automatización y el
-              desarrollo full-stack, con el objetivo de entregar soluciones de alta calidad y aportar valor
-              a cada proyecto en el que participo.
+              Me apasiona resolver problemas complejos mediante tecnología y seguir fortaleciendo mis conocimientos 
+              en arquitectura backend, microservicios, automatización y sistemas distribuidos. Mi objetivo es aportar 
+              valor construyendo software escalable, eficiente y de alta calidad.
             </p>
           </motion.div>
 

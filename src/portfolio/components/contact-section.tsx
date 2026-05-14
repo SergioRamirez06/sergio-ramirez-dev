@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { useMutation } from "@tanstack/react-query"
+import { sendContact } from "@/src/portfolio/actions/create-contact"
 
 const formFields = [
   { id: "name", label: "Nombre", placeholder: "Tu nombre", type: "text" },
@@ -16,19 +18,52 @@ const formFields = [
 ];
 
 export const ContactSection = () => {
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [submitted, setSubmitted] = useState(false)
 
+  const { mutate, isPending } = useMutation({
+    mutationFn: sendContact,
+    onSuccess: () => {
+      setSubmitted(true);
+
+      // reset form 🔥
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      setTimeout(() => setSubmitted(false), 3000);
+    },
+  });
+
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
-  }
+    e.preventDefault();
+    mutate(form);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({
+      ...form,
+      [e.target.id]: e.target.value,
+    });
+  };
 
   return (
     <section id="contacto" className="relative py-32">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xs h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xs h-px bg-linear-to-r from-transparent via-border to-transparent" />
 
       <div className="mx-auto max-w-6xl px-6" ref={ref}>
         <motion.div
@@ -132,12 +167,15 @@ export const ContactSection = () => {
               {formFields.map(({ id, label, placeholder, type, rows }) => (
                 <div key={id} className={`flex flex-col gap-2 ${type !== "textarea" && "sm:col-span-1"}`}>
                   <Label htmlFor={id} className="text-sm text-muted-foreground">{label}</Label>
+
                   {type === "textarea" ? (
                     <Textarea
                       id={id}
                       placeholder={placeholder}
                       rows={rows}
                       required
+                      value={form[id as keyof typeof form]}
+                      onChange={handleChange}
                       className="bg-background border-border/50 focus-visible:border-primary/50 rounded-lg resize-none"
                     />
                   ) : (
@@ -146,6 +184,8 @@ export const ContactSection = () => {
                       type={type}
                       placeholder={placeholder}
                       required
+                      value={form[id as keyof typeof form]}
+                      onChange={handleChange}
                       className="bg-background border-border/50 focus-visible:border-primary/50 rounded-lg"
                     />
                   )}
@@ -156,9 +196,9 @@ export const ContactSection = () => {
                 type="submit"
                 size="lg"
                 className="rounded-full gap-2 self-start px-8"
-                disabled={submitted}
+                disabled={isPending}
               >
-                {submitted ? "Mensaje enviado" : <>Enviar mensaje <Send className="size-4" /></>}
+                {isPending ? "Enviando..." : submitted ? "Mensaje enviado" : <>Enviar mensaje <Send className="size-4" /></>}
               </Button>
             </form>
           </motion.div>
